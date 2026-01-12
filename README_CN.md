@@ -93,7 +93,14 @@ QuantDinger 包含一个内置的**基于 LLM 的多智能体研究系统**，�
 ---
 
 ## 📚 文档
+
+### 开发指南
 - [Python 策略开发指南](docs/STRATEGY_DEV_GUIDE_CN.md)
+
+### 通知配置
+- [Telegram 通知配置](docs/NOTIFICATION_TELEGRAM_CONFIG_CH.md)
+- [邮件 (SMTP) 通知配置](docs/NOTIFICATION_EMAIL_CONFIG_CH.md)
+- [短信 (Twilio) 通知配置](docs/NOTIFICATION_SMS_CONFIG_CH.md)
 
 ## 📸 功能预览
 
@@ -128,6 +135,13 @@ QuantDinger 包含一个内置的**基于 LLM 的多智能体研究系统**，�
       <h3>🐍 Python 策略生成</h3>
       <p>内置编辑器，支持 AI 辅助策略代码编写。</p>
       <img src="docs/screenshots/indicator_creat_python_code.png" alt="Code Generation" style="border-radius: 6px;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top">
+      <h3>📊 资产监测</h3>
+      <p>追踪持仓、设置预警，并通过邮件/Telegram 接收 AI 分析报告。</p>
+      <img src="docs/screenshots/portfolio.jpg" alt="Portfolio Monitor" style="border-radius: 6px; max-width: 90%;">
     </td>
   </tr>
 </table>

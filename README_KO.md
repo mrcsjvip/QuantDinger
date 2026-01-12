@@ -93,7 +93,14 @@ QuantDinger는 웹에서 금융 정보를 수집하고, 로컬 시장 데이터�
 ---
 
 ## 📚 문서
+
+### 개발 가이드
 - [Python 전략 개발 가이드](docs/STRATEGY_DEV_GUIDE_KO.md)
+
+### 알림 설정
+- [Telegram 알림 설정](docs/NOTIFICATION_TELEGRAM_CONFIG_EN.md)
+- [이메일 (SMTP) 알림 설정](docs/NOTIFICATION_EMAIL_CONFIG_EN.md)
+- [SMS (Twilio) 알림 설정](docs/NOTIFICATION_SMS_CONFIG_EN.md)
 
 ## 📸 비주얼 투어
 
@@ -128,6 +135,13 @@ QuantDinger는 웹에서 금융 정보를 수집하고, 로컬 시장 데이터�
       <h3>🐍 Python 전략 생성</h3>
       <p>AI 지원 전략 코딩이 가능한 내장 에디터.</p>
       <img src="docs/screenshots/indicator_creat_python_code.png" alt="Code Generation" style="border-radius: 6px;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top">
+      <h3>📊 포트폴리오 모니터</h3>
+      <p>포지션 추적, 알림 설정, 이메일/Telegram으로 AI 분석 보고서 수신.</p>
+      <img src="docs/screenshots/portfolio.jpg" alt="Portfolio Monitor" style="border-radius: 6px; max-width: 90%;">
     </td>
   </tr>
 </table>

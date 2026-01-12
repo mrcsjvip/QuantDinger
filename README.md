@@ -93,7 +93,14 @@ QuantDinger includes a built-in **LLM-based multi-agent research system** that g
 ---
 
 ## 📚 Documentation
+
+### Guides
 - [Python Strategy Development Guide](docs/STRATEGY_DEV_GUIDE.md)
+
+### Notification Configuration
+- [Telegram Notification Setup](docs/NOTIFICATION_TELEGRAM_CONFIG_EN.md)
+- [Email (SMTP) Notification Setup](docs/NOTIFICATION_EMAIL_CONFIG_EN.md)
+- [SMS (Twilio) Notification Setup](docs/NOTIFICATION_SMS_CONFIG_EN.md)
 
 ## 📸 Visual Tour
 
@@ -128,6 +135,13 @@ QuantDinger includes a built-in **LLM-based multi-agent research system** that g
       <h3>🐍 Python Strategy Gen</h3>
       <p>Built-in editor with AI-assisted strategy coding.</p>
       <img src="docs/screenshots/indicator_creat_python_code.png" alt="Code Generation" style="border-radius: 6px;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top">
+      <h3>📊 Portfolio Monitor</h3>
+      <p>Track positions, set alerts, and receive AI-powered analysis via Email/Telegram.</p>
+      <img src="docs/screenshots/portfolio.jpg" alt="Portfolio Monitor" style="border-radius: 6px; max-width: 90%;">
     </td>
   </tr>
 </table>

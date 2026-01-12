@@ -342,7 +342,7 @@ def get_positions():
 
         now = int(time.time())
         # Fetch prices once per symbol to reduce API calls.
-        sym_to_price: Dict[str, float] = {}
+        sym_to_price: dict[str, float] = {}
         ds = DataSourceFactory.get_source("Crypto")
         for r in rows:
             sym = (r.get("symbol") or "").strip()
