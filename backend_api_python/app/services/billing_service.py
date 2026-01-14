@@ -421,6 +421,8 @@ class BillingService:
             'vip_expires_at': vip_expires_at.isoformat() if vip_expires_at else None,
             'billing_enabled': config.get('enabled', False),
             'vip_bypass': config.get('vip_bypass', True),
+            # Public support link for credits recharge / VIP purchase
+            'recharge_telegram_url': os.getenv('RECHARGE_TELEGRAM_URL', '').strip() or 'https://t.me/your_support_bot',
             # 功能费用（供前端显示）
             'feature_costs': {
                 'ai_analysis': config.get('cost_ai_analysis', 0),

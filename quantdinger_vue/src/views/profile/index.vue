@@ -380,7 +380,8 @@ export default {
         vip_expires_at: null,
         billing_enabled: false,
         vip_bypass: true,
-        feature_costs: {}
+        feature_costs: {},
+        recharge_telegram_url: ''
       },
       rechargeTelegramUrl: 'https://t.me/your_support_bot'
     }
@@ -463,7 +464,6 @@ export default {
   },
   mounted () {
     this.loadProfile()
-    this.loadRechargeUrl()
     this.loadReferrals()
   },
   beforeDestroy () {
@@ -481,6 +481,10 @@ export default {
           // 提取计费信息
           if (res.data.billing) {
             this.billing = res.data.billing
+            // Prefer server-provided public recharge link
+            if (this.billing.recharge_telegram_url) {
+              this.rechargeTelegramUrl = this.billing.recharge_telegram_url
+            }
           }
           this.$nextTick(() => {
             this.profileForm.setFieldsValue({
