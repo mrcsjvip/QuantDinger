@@ -84,7 +84,7 @@ class CryptoDataSource(BaseDataSource):
             else:
                 symbol_pair = symbol
             
-            logger.info(f"获取加密货币K线: {symbol_pair}, 周期: {ccxt_timeframe}, 条数: {limit}")
+            # logger.info(f"获取加密货币K线: {symbol_pair}, 周期: {ccxt_timeframe}, 条数: {limit}")
             
             ohlcv = self._fetch_ohlcv(symbol_pair, ccxt_timeframe, limit, before_time, timeframe)
             
@@ -136,7 +136,7 @@ class CryptoDataSource(BaseDataSource):
                 since = int(start_time.timestamp() * 1000)
                 end_ms = before_time * 1000
                 
-                logger.info(f"历史数据请求: since={since//1000}, end={before_time}, 时间跨度={total_seconds/86400:.1f}天")
+                # logger.info(f"历史数据请求: since={since//1000}, end={before_time}, 时间跨度={total_seconds/86400:.1f}天")
                 
                 # 分页获取数据，直到覆盖完整时间范围
                 all_ohlcv = []
@@ -168,13 +168,13 @@ class CryptoDataSource(BaseDataSource):
                     timeframe_ms = TIMEFRAME_SECONDS.get(timeframe, 86400) * 1000
                     current_since = last_timestamp + timeframe_ms
                     
-                    logger.info(f"分页获取中: 已获取 {len(all_ohlcv)} 条, 继续从 {datetime.fromtimestamp(current_since/1000)}")
+                    # logger.info(f"分页获取中: 已获取 {len(all_ohlcv)} 条, 继续从 {datetime.fromtimestamp(current_since/1000)}")
                 
                 ohlcv = all_ohlcv
             else:
                 ohlcv = self.exchange.fetch_ohlcv(symbol_pair, ccxt_timeframe, limit=limit)
             
-            logger.info(f"CCXT 返回 {len(ohlcv) if ohlcv else 0} 条数据")
+            # logger.info(f"CCXT 返回 {len(ohlcv) if ohlcv else 0} 条数据")
             return ohlcv
             
         except Exception as e:
@@ -201,7 +201,7 @@ class CryptoDataSource(BaseDataSource):
                 since = int((datetime.now() - timedelta(seconds=total_seconds)).timestamp() * 1000)
             
             ohlcv = self.exchange.fetch_ohlcv(symbol_pair, ccxt_timeframe, since=since, limit=limit)
-            logger.info(f"CCXT 备用方法返回 {len(ohlcv) if ohlcv else 0} 条数据")
+            # logger.info(f"CCXT 备用方法返回 {len(ohlcv) if ohlcv else 0} 条数据")
             return ohlcv
         except Exception as e:
             logger.error(f"CCXT fallback method also failed: {str(e)}")
