@@ -351,6 +351,7 @@ QuantDinger는 다양한 시장 유형에 대해 여러 실행 방법을 지원�
 | KuCoin | 현물, 선물 |
 | Gate.io | 현물, 선물 |
 | Bitfinex | 현물, 파생상품 |
+| Deepcoin | 현물, 무기한 |
 
 ### 전통적인 브로커
 
@@ -579,43 +580,6 @@ QuantDinger의 코드는 **Apache License 2.0**으로 제공됩니다. 다만 **
 
 - **Telegram**: [QuantDinger Group](https://t.me/worldinbroker)
 - **Email**: [brokermr810@gmail.com](mailto:brokermr810@gmail.com)
-
----
-
-### 💼 거래소 파트너(어필리에이트 링크)
-
-파트너 링크를 사용하면 동일한 거래 경험을 즐기면서 QuantDinger의 개발을 지원할 수 있습니다.
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="33.33%">
-      <a href="https://www.bmwweb.ac/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_9OSOJ" target="_blank">
-        <img src="https://img.shields.io/badge/Binance-Exchange-F0B90B?style=for-the-badge&logo=binance&logoColor=white" alt="Binance" />
-      </a>
-      <br/><br/>
-      <strong>세계 최대 암호화폐 거래소</strong><br/>
-      <small>현물 • 선물 • 마진 거래</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://www.bjwebptyiou.com/join/14449926" target="_blank">
-        <img src="https://img.shields.io/badge/OKX-Exchange-000000?style=for-the-badge&logo=okx&logoColor=white" alt="OKX" />
-      </a>
-      <br/><br/>
-      <strong>주요 파생상품 플랫폼</strong><br/>
-      <small>현물 • 영구 선물 • 옵션</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://share.glassgs.com/u/H8XZGS71" target="_blank">
-        <img src="https://img.shields.io/badge/Bitget-Exchange-1F2937?style=for-the-badge&logo=bitget&logoColor=white" alt="Bitget" />
-      </a>
-      <br/><br/>
-      <strong>혁신적인 복사 거래</strong><br/>
-      <small>현물 • 선물 • 소셜 거래</small>
-    </td>
-  </tr>
-</table>
-</div>
 
 ---
 

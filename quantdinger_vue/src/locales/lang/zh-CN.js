@@ -1559,7 +1559,8 @@ const locale = {
 'binanceus': 'Binance US',
 'binancecoinm': 'Binance COIN-M',
 'binanceusdm': 'Binance USDⓈ-M',
-'ibkr': '盈透证券 (IBKR)'
+'ibkr': '盈透证券 (IBKR)',
+'deepcoin': 'Deepcoin'
 },
 'ai-trading-assistant.title': 'AI交易助手',
 'ai-trading-assistant.strategyList': '策略列表',

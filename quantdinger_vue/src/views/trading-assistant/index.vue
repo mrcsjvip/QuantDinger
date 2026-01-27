@@ -1255,7 +1255,8 @@ const EXCHANGE_OPTIONS = [
   { value: 'kraken', labelKey: 'kraken' },
   { value: 'kucoin', labelKey: 'kucoin' },
   { value: 'gate', labelKey: 'gate' },
-  { value: 'bitfinex', labelKey: 'bitfinex' }
+  { value: 'bitfinex', labelKey: 'bitfinex' },
+  { value: 'deepcoin', labelKey: 'deepcoin' }
 ]
 
 // Traditional broker options (US/HK stocks) - extensible for future brokers
@@ -1289,7 +1290,7 @@ export default {
     },
     needsPassphrase () {
       // Exchanges that require passphrase
-      return ['okx', 'okex', 'coinbaseexchange', 'kucoin', 'bitget'].includes(this.currentExchangeId)
+      return ['okx', 'okex', 'coinbaseexchange', 'kucoin', 'bitget', 'deepcoin'].includes(this.currentExchangeId)
     },
     // Check if current market uses IBKR (US Stock / HK Stock)
     isIBKRMarket () {

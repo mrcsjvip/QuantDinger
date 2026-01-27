@@ -1233,7 +1233,8 @@ const locale = {
     'ftxus': 'إف تي إكس الولايات المتحدة',
     'binanceus': 'بينانس الولايات المتحدة',
     'binancecoinm': 'عملة بينانس-M',
-    'binanceusdm': 'Binance USDⓈ-M'
+    'binanceusdm': 'Binance USDⓈ-M',
+    'deepcoin': 'ديبكوين'
   },
   'ai-trading-assistant.title': 'مساعد التداول بالذكاء الاصطناعي',
   'ai-trading-assistant.strategyList': 'قائمة الإستراتيجية',

@@ -381,6 +381,7 @@ QuantDinger 支持多种市场类型的执行方式：
 | KuCoin | 现货, 合约 |
 | Gate.io | 现货, 合约 |
 | Bitfinex | 现货, 衍生品 |
+| Deepcoin | 现货, 永续 |
 
 ### 传统券商
 
@@ -610,43 +611,6 @@ QuantDinger 的代码使用 **Apache License 2.0** 授权。但需要注意：**
 
 - **Telegram**： [QuantDinger Group](https://t.me/worldinbroker)
 - **Email**： [brokermr810@gmail.com](mailto:brokermr810@gmail.com)
-
----
-
-### 💼 值得信赖的交易所合作伙伴（联盟链接）
-
-使用我们的合作伙伴链接，在享受相同交易体验的同时支持 QuantDinger 的发展。
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="33.33%">
-      <a href="https://www.bmwweb.ac/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_9OSOJ" target="_blank">
-        <img src="https://img.shields.io/badge/Binance-Exchange-F0B90B?style=for-the-badge&logo=binance&logoColor=white" alt="Binance" />
-      </a>
-      <br/><br/>
-      <strong>全球最大的加密货币交易所</strong><br/>
-      <small>现货 • 期货 • 杠杆交易</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://www.bjwebptyiou.com/join/14449926" target="_blank">
-        <img src="https://img.shields.io/badge/OKX-Exchange-000000?style=for-the-badge&logo=okx&logoColor=white" alt="OKX" />
-      </a>
-      <br/><br/>
-      <strong>领先的衍生品平台</strong><br/>
-      <small>现货 • 永续合约 • 期权</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://share.glassgs.com/u/H8XZGS71" target="_blank">
-        <img src="https://img.shields.io/badge/Bitget-Exchange-1F2937?style=for-the-badge&logo=bitget&logoColor=white" alt="Bitget" />
-      </a>
-      <br/><br/>
-      <strong>创新的跟单交易</strong><br/>
-      <small>现货 • 期货 • 社交交易</small>
-    </td>
-  </tr>
-</table>
-</div>
 
 ---
 

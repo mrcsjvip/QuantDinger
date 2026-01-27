@@ -1283,7 +1283,8 @@ const locale = {
     'ftxus': 'FTX USA',
     'binanceus': 'Binance USA',
     'binancecoinm': 'Binance COIN-M',
-    'binanceusdm': 'Binance USDⓈ-M'
+    'binanceusdm': 'Binance USDⓈ-M',
+    'deepcoin': 'Deepcoin'
   },
   'ai-trading-assistant.title': 'KI-Handelsassistent',
   'ai-trading-assistant.strategyList': 'Strategieliste',

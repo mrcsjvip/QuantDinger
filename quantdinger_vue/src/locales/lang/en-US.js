@@ -1664,7 +1664,8 @@ const locale = {
     'binanceus': 'Binance US',
     'binancecoinm': 'Binance COIN-M',
     'binanceusdm': 'Binance USDⓈ-M',
-    'ibkr': 'Interactive Brokers (IBKR)'
+    'ibkr': 'Interactive Brokers (IBKR)',
+    'deepcoin': 'Deepcoin'
   },
   'ai-trading-assistant.title': 'AI Trading Assistant',
   'ai-trading-assistant.strategyList': 'Strategy List',

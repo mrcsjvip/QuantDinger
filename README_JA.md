@@ -351,6 +351,7 @@ QuantDingerは複数の市場タイプに対して複数の実行方法をサポ
 | KuCoin | 現物, 先物 |
 | Gate.io | 現物, 先物 |
 | Bitfinex | 現物, デリバティブ |
+| Deepcoin | 現物, 無期限 |
 
 ### 伝統的なブローカー
 
@@ -566,43 +567,6 @@ QuantDinger のコードは **Apache License 2.0** で提供されています�
 
 - **Telegram**: [QuantDinger Group](https://t.me/worldinbroker)
 - **Email**: [brokermr810@gmail.com](mailto:brokermr810@gmail.com)
-
----
-
-### 💼 取引所パートナー（アフィリエイトリンク）
-
-パートナーリンクを使用することで、同じ取引体験を楽しみながら QuantDinger の開発を支援できます。
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="33.33%">
-      <a href="https://www.bmwweb.ac/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_9OSOJ" target="_blank">
-        <img src="https://img.shields.io/badge/Binance-Exchange-F0B90B?style=for-the-badge&logo=binance&logoColor=white" alt="Binance" />
-      </a>
-      <br/><br/>
-      <strong>世界最大の暗号通貨取引所</strong><br/>
-      <small>現物 • 先物 • マージン取引</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://www.bjwebptyiou.com/join/14449926" target="_blank">
-        <img src="https://img.shields.io/badge/OKX-Exchange-000000?style=for-the-badge&logo=okx&logoColor=white" alt="OKX" />
-      </a>
-      <br/><br/>
-      <strong>主要なデリバティブプラットフォーム</strong><br/>
-      <small>現物 • パーペチュアル • オプション</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://share.glassgs.com/u/H8XZGS71" target="_blank">
-        <img src="https://img.shields.io/badge/Bitget-Exchange-1F2937?style=for-the-badge&logo=bitget&logoColor=white" alt="Bitget" />
-      </a>
-      <br/><br/>
-      <strong>革新的なコピートレード</strong><br/>
-      <small>現物 • 先物 • ソーシャルトレード</small>
-    </td>
-  </tr>
-</table>
-</div>
 
 ---
 

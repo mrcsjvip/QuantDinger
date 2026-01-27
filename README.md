@@ -802,42 +802,6 @@ See: `TRADEMARKS.md`
 
 ---
 
-### 💼 Trusted Exchange Partners (Affiliate Links)
-
-By using our partner links, you support QuantDinger's development while enjoying the same trading experience.
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="33.33%">
-      <a href="https://www.bmwweb.ac/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_9OSOJ" target="_blank">
-        <img src="https://img.shields.io/badge/Binance-Exchange-F0B90B?style=for-the-badge&logo=binance&logoColor=white" alt="Binance" />
-      </a>
-      <br/><br/>
-      <strong>World's Largest Crypto Exchange</strong><br/>
-      <small>Spot • Futures • Margin Trading</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://www.bjwebptyiou.com/join/14449926" target="_blank">
-        <img src="https://img.shields.io/badge/OKX-Exchange-000000?style=for-the-badge&logo=okx&logoColor=white" alt="OKX" />
-      </a>
-      <br/><br/>
-      <strong>Leading Derivatives Platform</strong><br/>
-      <small>Spot • Perpetual • Options</small>
-    </td>
-    <td align="center" width="33.33%">
-      <a href="https://share.glassgs.com/u/H8XZGS71" target="_blank">
-        <img src="https://img.shields.io/badge/Bitget-Exchange-1F2937?style=for-the-badge&logo=bitget&logoColor=white" alt="Bitget" />
-      </a>
-      <br/><br/>
-      <strong>Innovative Copy Trading</strong><br/>
-      <small>Spot • Futures • Social Trading</small>
-    </td>
-  </tr>
-</table>
-</div>
-
----
 
 ### 💝 Direct Support (Donations)
 

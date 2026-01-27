@@ -1235,7 +1235,8 @@ const locale = {
     'ftxus': 'FTX สหรัฐอเมริกา',
     'binanceus': 'Binance สหรัฐอเมริกา',
     'binancecoinm': 'Binance COIN-M',
-    'binanceusdm': 'Binance USDⓈ-M'
+    'binanceusdm': 'Binance USDⓈ-M',
+    'deepcoin': 'ดีพคอยน์'
   },
   'ai-trading-assistant.title': 'ผู้ช่วยการซื้อขาย AI',
   'ai-trading-assistant.strategyList': 'รายการกลยุทธ์',

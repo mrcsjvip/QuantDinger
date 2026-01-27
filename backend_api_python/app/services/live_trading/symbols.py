@@ -185,3 +185,38 @@ def to_bitfinex_perp_symbol(symbol: str) -> str:
     return f"t{base}F0:{q}F0"
 
 
+def to_deepcoin_symbol(symbol: str) -> str:
+    """
+    Deepcoin symbol format: typically BASE-QUOTE for spot, BASE-QUOTE-SWAP for perpetual.
+    Examples:
+    - Spot: BTC-USDT
+    - Perpetual: BTC-USDT-SWAP
+    
+    If symbol already contains '-', return as-is (already in Deepcoin format).
+    """
+    s = (symbol or "").strip()
+    if not s:
+        return s
+    
+    # Already in Deepcoin format
+    if "-" in s:
+        return s.upper()
+    
+    base, quote = _split_base_quote(symbol)
+    if not base or not quote:
+        # Best effort: remove slashes and colons
+        return s.replace("/", "-").replace(":", "-").upper()
+    
+    # Return BASE-QUOTE format (caller adds -SWAP if needed for futures)
+    return f"{base}-{quote}"
+
+
+def to_deepcoin_swap_symbol(symbol: str) -> str:
+    """
+    Deepcoin perpetual swap symbol format: BASE-QUOTE-SWAP, e.g. BTC-USDT-SWAP.
+    """
+    base_symbol = to_deepcoin_symbol(symbol)
+    if base_symbol.endswith("-SWAP"):
+        return base_symbol
+    return f"{base_symbol}-SWAP"
+

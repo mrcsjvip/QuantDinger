@@ -2376,7 +2376,9 @@ const locale = {
 
 'binancecoinm': 'Binance COIN-M',
 
-'binanceusdm': 'Binance USDⓈ-M'
+'binanceusdm': 'Binance USDⓈ-M',
+
+'deepcoin': 'Deepcoin'
 
 },
 

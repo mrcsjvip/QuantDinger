@@ -24,6 +24,7 @@ from app.services.live_trading.kraken_futures import KrakenFuturesClient
 from app.services.live_trading.kucoin import KucoinSpotClient, KucoinFuturesClient
 from app.services.live_trading.gate import GateSpotClient, GateUsdtFuturesClient
 from app.services.live_trading.bitfinex import BitfinexClient, BitfinexDerivativesClient
+from app.services.live_trading.deepcoin import DeepcoinClient
 
 # Lazy import IBKR to avoid ImportError if ib_insync not installed
 IBKRClient = None
@@ -113,6 +114,16 @@ def create_client(exchange_config: Dict[str, Any], *, market_type: str = "swap")
         if mt == "spot":
             return BitfinexClient(api_key=api_key, secret_key=secret_key, base_url=base_url)
         return BitfinexDerivativesClient(api_key=api_key, secret_key=secret_key, base_url=base_url)
+
+    if exchange_id == "deepcoin":
+        base_url = _get(exchange_config, "base_url", "baseUrl") or "https://api.deepcoin.com"
+        return DeepcoinClient(
+            api_key=api_key,
+            secret_key=secret_key,
+            passphrase=passphrase,
+            base_url=base_url,
+            market_type=mt,
+        )
 
     # Traditional brokers (IBKR for US/HK stocks only)
     if exchange_id == "ibkr":
