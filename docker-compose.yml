@@ -1,57 +1,29 @@
-# QuantDinger Docker Compose
-# Quick start: docker-compose up -d
+# QuantDinger Docker Compose (backend + frontend only)
+# Uses external PostgreSQL: set DATABASE_URL in .env or environment.
+# Quick start: docker-compose up -d --build
 
 version: '3.8'
 
 services:
-  # PostgreSQL Database
-  postgres:
-    image: postgres:16-alpine
-    container_name: quantdinger-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-quantdinger}
-      POSTGRES_USER: ${POSTGRES_USER:-quantdinger}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-quantdinger123}
-      TZ: Asia/Shanghai
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backend_api_python/migrations/init.sql:/docker-entrypoint-initdb.d/01-init.sql
-      - ./backend_api_python/migrations:/migrations
-    ports:
-      - "127.0.0.1:5432:5432"
-    networks:
-      - quantdinger-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U quantdinger -d quantdinger"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  # Backend API Service
   backend:
+    image: quantdinger-backend:latest
     build:
       context: ./backend_api_python
       dockerfile: Dockerfile
     container_name: quantdinger-backend
     restart: unless-stopped
-    depends_on:
-      postgres:
-        condition: service_healthy
     ports:
       - "127.0.0.1:5000:5000"
+    env_file:
+      - ./backend_api_python/.env
     volumes:
-      # Persistent logs
       - ./backend_api_python/logs:/app/logs
       - ./backend_api_python/data:/app/data
-      # Configuration file (optional, for development)
       - ./backend_api_python/.env:/app/.env
     environment:
       - PYTHON_API_HOST=0.0.0.0
       - PYTHON_API_PORT=5000
       - TZ=Asia/Shanghai
-      # Database connection
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-quantdinger}:${POSTGRES_PASSWORD:-quantdinger123}@postgres:5432/${POSTGRES_DB:-quantdinger}
       - DB_TYPE=postgresql
     networks:
       - quantdinger-network
@@ -61,8 +33,8 @@ services:
       timeout: 10s
       retries: 3
 
-  # Frontend Web Service
   frontend:
+    image: quantdinger-frontend:latest
     build:
       context: ./quantdinger_vue
       dockerfile: Dockerfile
@@ -79,10 +51,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
-volumes:
-  postgres_data:
-    driver: local
 
 networks:
   quantdinger-network:

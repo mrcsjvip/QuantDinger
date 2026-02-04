@@ -226,7 +226,25 @@ def create_app(config_name='default'):
     
     from app.routes import register_routes
     register_routes(app)
-    
+
+    # Serve embedded frontend (e.g. root Dockerfile / ACR single-image build)
+    import os
+    _backend_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    _static_web = os.path.join(_backend_root, 'static_web')
+    if os.path.isdir(_static_web):
+        from flask import send_from_directory
+        @app.route('/')
+        def _serve_index():
+            return send_from_directory(_static_web, 'index.html')
+        @app.route('/<path:path>')
+        def _serve_spa(path):
+            if path.startswith('api/'):
+                return None
+            f = os.path.join(_static_web, path)
+            if os.path.isfile(f):
+                return send_from_directory(_static_web, path)
+            return send_from_directory(_static_web, 'index.html')
+
     # Startup hooks.
     with app.app_context():
         start_pending_order_worker()

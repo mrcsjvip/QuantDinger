@@ -515,6 +515,8 @@ docker-compose up -d --build
 
 #### Docker 命令参考
 
+更完整的镜像构建说明（单独构建后端/前端、打 tag、**从 ACR 拉取单镜像后如何指定配置文件并运行**等）见 [Docker 构建说明](docs/DOCKER_BUILD.md)。根目录也可使用 `make build`、`make up`、`make down`。
+
 ```bash
 # 查看运行状态
 docker-compose ps

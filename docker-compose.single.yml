@@ -1,0 +1,18 @@
+# 单镜像运行（从 ACR 拉取后使用）
+# 用法：在目标服务器上创建 .env 后执行: docker-compose -f docker-compose.single.yml up -d
+# 镜像名请改为你的 ACR 地址，例如: registry.cn-hangzhou.aliyuncs.com/mycompany/quantdinger:1.0.0
+
+version: '3.8'
+
+services:
+  quantdinger:
+    image: registry.cn-hangzhou.aliyuncs.com/quantdinger/quantdinger:latest
+    container_name: quantdinger
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data

@@ -1,0 +1,33 @@
+# Root Dockerfile (single image for ACR) - keep context small
+.git
+.gitignore
+*.md
+.env
+.idea
+*.iml
+
+# Vue: avoid copying node_modules (we only COPY source, npm install in stage)
+quantdinger_vue/node_modules
+quantdinger_vue/dist
+quantdinger_vue/.env*
+quantdinger_vue/.husky
+
+# Backend: avoid copying venv and caches
+backend_api_python/__pycache__
+backend_api_python/**/__pycache__
+backend_api_python/.venv
+backend_api_python/venv
+backend_api_python/env
+backend_api_python/.env
+backend_api_python/logs
+backend_api_python/data
+backend_api_python/*.db
+backend_api_python/.pytest_cache
+backend_api_python/.coverage
+backend_api_python/tests
+
+# Other
+docs
+.github
+docker-compose.yml
+Makefile
