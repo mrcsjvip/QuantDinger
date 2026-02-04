@@ -55,6 +55,8 @@ docker build -t quantdinger:latest .
 
 **推送至 ACR：** 在 ACR 控制台配置「镜像构建」时，将构建上下文设为仓库根目录，Dockerfile 路径为 `./Dockerfile`。构建产物为单镜像，运行一个容器即可（需配置 `DATABASE_URL` 等环境变量）。
 
+**基础镜像与国内构建：** 根目录 Dockerfile 默认使用 DaoCloud 镜像（`docker.m.daocloud.io/library/node:18-alpine`、`python:3.12-slim`），避免 ACR 构建时从 Docker Hub 拉取超时。若 DaoCloud 在 ACR 环境中仍不可达，可在 ACR 构建规则中配置构建参数，例如改用其他镜像源，或在本地构建后推送到 ACR。
+
 **运行示例：**
 
 ```bash
