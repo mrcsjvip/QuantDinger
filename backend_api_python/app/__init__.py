@@ -239,7 +239,8 @@ def create_app(config_name='default'):
         @app.route('/<path:path>')
         def _serve_spa(path):
             if path.startswith('api/'):
-                return None
+                from flask import abort
+                abort(404)  # let API blueprints handle /api/* (they are already registered)
             f = os.path.join(_static_web, path)
             if os.path.isfile(f):
                 return send_from_directory(_static_web, path)

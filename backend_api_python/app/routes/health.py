@@ -7,9 +7,9 @@ from datetime import datetime
 health_bp = Blueprint('health', __name__)
 
 
-@health_bp.route('/', methods=['GET'])
+@health_bp.route('/api/status', methods=['GET'])
 def index():
-    """API 首页"""
+    """API 状态（原 / 已用于单镜像时托管前端，故迁至 /api/status）"""
     return jsonify({
         'name': 'QuantDinger Python API',
         'version': '2.0.0',
