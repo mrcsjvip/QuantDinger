@@ -3,16 +3,16 @@
 # Run: docker run -p 5000:5000 -e DATABASE_URL=... quantdinger:latest
 # Frontend is built and served by the backend on the same port.
 #
-# Base images use DaoCloud mirror so ACR build in China can pull without Docker Hub timeout.
-# To use Docker Hub directly (e.g. local build), override: docker build --build-arg BASE_NODE=node --build-arg BASE_PYTHON=python .
+# Base images from 阿里云容器镜像服务 制品中心 (same region as ACR, good network).
+# Platform: linux/amd64.
 
-ARG BASE_NODE=docker.m.daocloud.io/library/node:18-alpine
-ARG BASE_PYTHON=docker.m.daocloud.io/library/python:3.12-slim
+ARG NODE_IMAGE=alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/node:20.16
+ARG PYTHON_IMAGE=alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/python:3.11.1
 
 # ---------------------------------------------------------------------------
 # Stage 1: Build Vue frontend
 # ---------------------------------------------------------------------------
-FROM ${BASE_NODE} AS frontend-builder
+FROM --platform=linux/amd64 ${NODE_IMAGE} AS frontend-builder
 WORKDIR /app
 COPY quantdinger_vue/package*.json ./
 RUN npm install --legacy-peer-deps
@@ -20,17 +20,13 @@ COPY quantdinger_vue/ .
 RUN npm run build
 
 # ---------------------------------------------------------------------------
-# Stage 2: Python backend + embed frontend static
+# Stage 2: Python backend + embed frontend static (Alibaba Cloud Linux 3, dnf)
 # ---------------------------------------------------------------------------
-FROM ${BASE_PYTHON}
+FROM --platform=linux/amd64 ${PYTHON_IMAGE}
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    libffi-dev \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+RUN dnf install -y gcc libffi-devel curl && dnf clean all
 
 COPY backend_api_python/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
@@ -46,4 +42,4 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHON_API_HOST=0.0.0.0
 ENV PYTHON_API_PORT=5000
 
-CMD ["python", "run.py"]
+CMD ["python3", "run.py"]
