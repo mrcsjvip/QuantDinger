@@ -69,6 +69,16 @@ class MetaAPIKeys(type):
         val = load_addon_config().get('grok', {}).get('api_key')
         return val if val else ''
 
+    @property
+    def DASHSCOPE_API_KEY(cls):
+        """Alibaba DashScope (Qianwen 通义千问) API key"""
+        env_val = os.getenv('DASHSCOPE_API_KEY', '').strip()
+        if env_val:
+            return env_val
+        from app.utils.config_loader import load_addon_config
+        val = load_addon_config().get('qianwen', {}).get('api_key') or load_addon_config().get('dashscope', {}).get('api_key')
+        return val if val else ''
+
 
 class APIKeys(metaclass=MetaAPIKeys):
     """API 密钥配置类"""

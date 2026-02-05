@@ -1,6 +1,6 @@
 """
 LLM service.
-Supports multiple providers: OpenRouter, OpenAI, Google Gemini, DeepSeek, Grok.
+Supports multiple providers: OpenRouter, OpenAI, Google Gemini, DeepSeek, Grok, Qianwen (DashScope).
 Kept separate from AnalysisService to avoid circular imports.
 """
 import json
@@ -23,6 +23,7 @@ class LLMProvider(Enum):
     GOOGLE = "google"
     DEEPSEEK = "deepseek"
     GROK = "grok"
+    QIANWEN = "qianwen"
 
 
 # Provider configurations
@@ -51,6 +52,11 @@ PROVIDER_CONFIGS = {
         "base_url": "https://api.x.ai/v1",
         "default_model": "grok-beta",
         "fallback_model": "grok-beta",
+    },
+    LLMProvider.QIANWEN: {
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "default_model": "qwen-plus",
+        "fallback_model": "qwen-turbo",
     },
 }
 
@@ -91,9 +97,10 @@ class LLMService:
                 pass
         
         # Auto-detect: find any provider with a configured API key
-        # Priority: DeepSeek > Grok > OpenAI > Google > OpenRouter
+        # Priority: DeepSeek > Qianwen > Grok > OpenAI > Google > OpenRouter
         priority_order = [
             LLMProvider.DEEPSEEK,
+            LLMProvider.QIANWEN,
             LLMProvider.GROK,
             LLMProvider.OPENAI,
             LLMProvider.GOOGLE,
@@ -118,6 +125,7 @@ class LLMService:
             LLMProvider.GOOGLE: APIKeys.GOOGLE_API_KEY,
             LLMProvider.DEEPSEEK: APIKeys.DEEPSEEK_API_KEY,
             LLMProvider.GROK: APIKeys.GROK_API_KEY,
+            LLMProvider.QIANWEN: APIKeys.DASHSCOPE_API_KEY,
         }
         return key_map.get(p, "") or ""
 
@@ -256,6 +264,10 @@ class LLMService:
         if provider == LLMProvider.OPENROUTER:
             return model
         
+        # Qianwen: accept "qianwen/qwen-plus" -> "qwen-plus"
+        if provider == LLMProvider.QIANWEN and model and model.startswith("qianwen/"):
+            return model.split("/", 1)[1]
+        
         # For direct providers, extract the model name from OpenRouter format
         # e.g., 'openai/gpt-4o' -> 'gpt-4o'
         #       'google/gemini-1.5-flash' -> 'gemini-1.5-flash'
@@ -304,6 +316,7 @@ class LLMService:
             'deepseek': LLMProvider.DEEPSEEK,
             'x-ai': LLMProvider.GROK,
             'xai': LLMProvider.GROK,
+            'qianwen': LLMProvider.QIANWEN,
             'anthropic': LLMProvider.OPENROUTER,  # Anthropic only via OpenRouter
             'meta': LLMProvider.OPENROUTER,  # Meta/Llama only via OpenRouter
             'mistral': LLMProvider.OPENROUTER,  # Mistral only via OpenRouter
@@ -374,8 +387,15 @@ class LLMService:
                         messages, current_model, temperature,
                         api_key, base_url, timeout
                     )
+                elif p == LLMProvider.QIANWEN:
+                    # DashScope is OpenAI-compatible
+                    return self._call_openai_compatible(
+                        messages, current_model, temperature,
+                        api_key, base_url, timeout,
+                        use_json_mode=use_json_mode
+                    )
                 else:
-                    # OpenAI-compatible providers
+                    # OpenAI-compatible providers (OpenAI, DeepSeek, Grok, OpenRouter)
                     return self._call_openai_compatible(
                         messages, current_model, temperature,
                         api_key, base_url, timeout,
